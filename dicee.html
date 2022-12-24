@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dicee</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Refresh Me</h1>
+
+      <div class="dice">
+        <p>Player 1</p>
+        <img class="img1" src="images\dice6.png">
+      </div>
+
+      <div class="dice">
+        <p>Player 2</p>
+        <img class="img2" src="images\dice6.png">
+      </div>
+    </div>
+    <br>
+    <button class="btn" style="margin-left:48%;" onclick="fun()">Click me</button>
+    <script>
+      function fun(){
+        var randomNumber1 = Math.floor(Math.random()*6)+1;
+        var randomNumber2 = Math.floor(Math.random()*6)+1;
+        var randomDiceImage = "dice" + randomNumber1 + ".png";
+        var randomDiceImage2 = "dice" + randomNumber2 + ".png";
+        var randomImageSource = "images/" + randomDiceImage;
+        var randomImageSource2 = "images/" + randomDiceImage2;
+        var image1 = document.querySelector(".img1");
+        var image2 = document.querySelector(".img2");
+        image1.setAttribute("src",randomImageSource);
+        image2.setAttribute("src",randomImageSource2);
+        if(randomNumber1>randomNumber2){
+          document.querySelector("h1").innerHTML = "Player 1 Wins!";
+        }
+        else if(randomNumber1<randomNumber2){
+          document.querySelector("h1").innerHTML = "Player 2 Wins!";
+        }
+        else{
+          document.querySelector("h1").innerHTML = "Draw!";
+        }
+      }
+    </script>
+
+  </body>
+</html>
